@@ -28,7 +28,7 @@ def sort_2(array: list) -> list:
     return sort_2(left_side) + equals + sort_2(right_side)
 
 
-arr = [random.randint(13, 27) for _ in range(10**6 + 1)]
+arr = [random.randint(13, 27) for _ in range(10**4 + 1)]
 
 if __name__ == '__main__':
     time_list_1 = []
@@ -41,4 +41,5 @@ if __name__ == '__main__':
         time_list_1.append(time.perf_counter() - start)
 
     print(f"Bubble sort time: {sum(time_list_1) / 10}, Quick sort time: {sum(time_list_2) / 10}")
-    #
+    # Bubble sort time: 8.460435769998004, Quick sort time: 0.0033987200004048645
+    # при arr = [random.randint(13, 27) for _ in range(10**4 + 1)]

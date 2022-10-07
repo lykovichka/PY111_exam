@@ -4,19 +4,46 @@
 Для решения данной проблемы требуемое место читается несколько раз,
 после чего строится консенсус-строка, в которой на каждом месте будет стоять тот символ,
 что чаще всего встречался в этом месте суммарно во всех чтениях.
-Т.е. для строк
-ATTA
-ACTA
-AGCA
-ACAA
+Т.е. для строк ATTA ACTA AGCA ACAA
 консенсус-строка будет ACTA (в первой ячейке чаще всего встречалась A, во второй – C,
 в третьей – Т, в четвертой – снова А).
 Для входного списка из N строк одинаковой длины построить консенсус-строку."""
 
-def dna_reed(dna:list) -> str:
-    for i in range(len(dna)-1):
-        for j in range(len(dna[i])-1):
+array = [['A', 'T', 'T', 'A'],
+         ['A', 'C', 'T', 'A'],
+         ['A', 'G', 'C', 'A'],
+         ['A', 'C', 'A', 'A']]
 
 
+def transport(matr):
+    """ Функция Транспонирование матрицы (меняем столбцы со строками местами)"""
+    length = len(matr)
+    for i in range(length - 1):
+        for j in range(i + 1, length):
+            matr[i][j], matr[j][i] = matr[j][i], matr[i][j]
+    return matr
 
-print(['ATTA', 'ACTA', 'AGCA', 'ACAA'])
+
+def counter(matr):
+    """ Функция подсчета наиболее часто встречающихся символов"""
+    matr = transport(matr)
+    result = []
+
+    for i in range(len(matr)):
+        set_ = set(matr[i])
+
+        most_value = None  # наиболее часто встречаемое значение
+        sum_most_value = 0  # его количество
+        for symb in set_:
+            # переменной qty присваивается количество случаев
+            # item в списке a
+            q = matr[i].count(symb)
+            # Если это количество больше максимального,
+            if q > sum_most_value:
+                sum_most_value = q  # то заменяем на него максимальное,
+                most_value = symb  # запоминаем само значение
+        result.append(most_value)
+    return result
+
+
+print(counter(array))

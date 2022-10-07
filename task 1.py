@@ -5,7 +5,7 @@ while a > 0: # O(log(n))
     a = a // 1.7 # O(1)
 out.merge_sort() # O(n)
 
-print('O(log(n))')
+print('O(n + log(n))')
 
 
 
