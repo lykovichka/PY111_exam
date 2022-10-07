@@ -35,13 +35,13 @@ def counter(matr):
         most_value = None  # наиболее часто встречаемое значение
         sum_most_value = 0  # его количество
         for symb in set_:
-            # переменной qty присваивается количество случаев
-            # item в списке a
+
+
             q = matr[i].count(symb)
-            # Если это количество больше максимального,
+
             if q > sum_most_value:
-                sum_most_value = q  # то заменяем на него максимальное,
-                most_value = symb  # запоминаем само значение
+                sum_most_value = q
+                most_value = symb
         result.append(most_value)
     return result
 
