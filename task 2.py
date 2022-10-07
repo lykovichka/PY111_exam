@@ -31,14 +31,10 @@ def counter(matr):
 
     for i in range(len(matr)):
         set_ = set(matr[i])
-
         most_value = None  # наиболее часто встречаемое значение
         sum_most_value = 0  # его количество
         for symb in set_:
-
-
             q = matr[i].count(symb)
-
             if q > sum_most_value:
                 sum_most_value = q
                 most_value = symb
